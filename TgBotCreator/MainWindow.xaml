@@ -1,0 +1,144 @@
+﻿<Window x:Class="TgBotCreator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TgBotCreator"
+        mc:Ignorable="d"
+        Title="TgBotCreator" Height="500" Width="800"
+        Loaded="Window_Loaded">
+    <!--name
+    about words
+    size
+    alignment
+    action-->
+    <Grid>
+        <Grid Margin="10,10,10,100">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="0"
+                Text="*" FontSize="24" Foreground="Red"/>
+
+            <TextBlock Grid.Row="0" Grid.Column="1"
+                Text="Project Name: " FontSize="24"/>
+            <TextBox Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2"
+                x:Name="projectname"
+                FontSize="24"
+                Width="500"
+                VerticalAlignment="Top"
+                />
+
+
+            <TextBlock Grid.Row="1" Grid.Column="0"
+                Text="*" FontSize="24" Foreground="Red"/>
+
+            <TextBlock Grid.Row="1" Grid.Column="1"
+                Text="Output path: " FontSize="24"/>
+            <TextBox Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2"
+                x:Name="outputpath"
+                FontSize="24"
+                Width="500"
+                VerticalAlignment="Top"
+                />
+            <Button Grid.Row="1" Grid.Column="4"
+                x:Name="setoutputpath"
+                Content="..." FontSize="24"
+                Width="45"
+                HorizontalAlignment="Right"
+                Click="setoutputpath_Click"
+                />
+
+            <TextBlock Grid.Row="2" Grid.Column="0"
+                Text="*" FontSize="24" Foreground="Red"/>
+            <TextBlock Grid.Row="2" Grid.Column="1"
+                Text="Bot token: " FontSize="24"/>
+            <TextBox Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2"
+                x:Name="TELEGRAM_TOKEN" 
+                FontSize="24"
+                Width="500"/>
+
+            <TextBlock Grid.Row="3" Grid.Column="1"
+                Text="imgur client id: " FontSize="24"/>
+            <TextBox Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2"
+                x:Name="IMGUR_CLIENT_ID" 
+                FontSize="24"
+                Width="500"
+                VerticalAlignment="Bottom"/>
+
+            <TextBlock Grid.Row="4" Grid.Column="1"
+                Text="Command Name: " FontSize="24"/>
+            <ScrollViewer Grid.Row="4" Grid.Column="2" HorizontalAlignment="Left"
+                x:Name="functions_scrollviewer">
+                <WrapPanel x:Name="functions"
+                    Orientation="Vertical">
+                    <TextBox x:Name="func0"
+                        Text="start" FontSize="30"
+                        Width="300"
+                        IsEnabled="False"/>
+
+                    <TextBox x:Name="func1"
+                        FontSize="30"
+                        Width="300"
+                        TextChanged="Func_TextChanged"
+                        IsKeyboardFocusedChanged="Func_IsKeyboardFocusedChanged"/>
+
+
+                </WrapPanel>
+            </ScrollViewer>
+
+
+            <TextBlock Grid.Row="5" Grid.Column="0"
+                Text="*" FontSize="24" Foreground="Red"/>
+            <TextBlock Grid.Row="5" Grid.Column="1"
+                Text="LICENSE: " FontSize="24"/>
+            <ComboBox x:Name="LICENSE" Grid.Row="5" Grid.Column="2" FontSize="20">
+                <ComboBoxItem Content="Mozilla Public License 2.0"/>
+            </ComboBox>
+            
+            <TextBlock Grid.Row="6" Grid.Column="0"
+                Text="*" FontSize="24" Foreground="Red"/>
+            <TextBlock Grid.Row="6" Grid.Column="1"
+                Text="Show in" FontSize="24"/>
+            <ComboBox x:Name="showin" Grid.Row="6" Grid.Column="2" FontSize="20"
+                SelectionChanged="showin_SelectionChanged">
+                <ComboBoxItem Content="Explorer"/>
+                <ComboBoxItem Content="Visual Studio Code"/>
+            </ComboBox>
+
+
+        </Grid>
+        <Button x:Name="about" 
+                Content="About"
+                Margin="10" Padding="7"
+                VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                Click="about_Click"/>
+
+        <Button x:Name="create"
+                Content="create" FontSize="24"
+                Width="100" Height="80" Margin="10"
+                HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                Click="Create_Click"/>
+        <TextBlock x:Name="requirementhint"
+                Text="" FontSize="24" Foreground="Red"
+                Margin="0, 0, 120, 10"
+                HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                TextAlignment="Right"
+                />
+    </Grid>
+</Window>
